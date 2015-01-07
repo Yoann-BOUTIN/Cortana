@@ -1,0 +1,31 @@
+﻿La génération a démarré 07/01/2015 18:41:39.
+     1>Projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyControlEngine.cpp MyGameEngine.cpp MyGraphicEngine.cpp main.cpp
+         MyControlEngine.cpp
+     1>MyControlEngine.cpp(22): error C2065: 'player_' : identificateur non déclaré
+     1>MyControlEngine.cpp(22): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+     1>MyControlEngine.cpp(22): error C2660: 'Morpion::play' : la fonction ne prend pas 2 arguments
+         MyGameEngine.cpp
+     1>MyGameEngine.cpp(13): error C2065: 'ia_' : identificateur non déclaré
+     1>MyGameEngine.cpp(13): error C2228: la partie gauche de '.calculIA' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+     1>MyGameEngine.cpp(13): error C2228: la partie gauche de '.getProf' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+     1>MyGameEngine.cpp(14): error C2065: 'ia_' : identificateur non déclaré
+     1>MyGameEngine.cpp(14): error C2228: la partie gauche de '.decProf' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+         MyGraphicEngine.cpp
+     1>MyGraphicEngine.cpp(10): error C2065: 'player_' : identificateur non déclaré
+     1>MyGraphicEngine.cpp(10): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+     1>MyGraphicEngine.cpp(19): error C2065: 'player_' : identificateur non déclaré
+     1>MyGraphicEngine.cpp(19): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
+                 le type est 'unknown-type'
+         main.cpp
+     1>Génération du projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:02.68

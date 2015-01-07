@@ -1,0 +1,20 @@
+﻿La génération a démarré 24/10/2014 17:06:00.
+     1>Projet "C:\Users\law\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\CortanaMorpion\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\law\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\uselibgraph\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp MyControlEngine.cpp MyGameEngine.cpp MyGraphicEngine.cpp Square.cpp
+         Square.cpp
+     1>c:\users\law\desktop\cours\master 1 info\c++\tpc++\cpp\cortanamorpion\cortanamorpion\square.h(3): fatal error C1083: Impossible d'ouvrir le fichier include : 'Utility.h' : No such file or directory
+         MyGraphicEngine.cpp
+     1>c:\users\law\desktop\cours\master 1 info\c++\tpc++\cpp\cortanamorpion\cortanamorpion\mygraphicengine.h(4): fatal error C1083: Impossible d'ouvrir le fichier include : 'LibConstants.h' : No such file or directory
+         MyGameEngine.cpp
+     1>c:\users\law\desktop\cours\master 1 info\c++\tpc++\cpp\cortanamorpion\cortanamorpion\square.h(3): fatal error C1083: Impossible d'ouvrir le fichier include : 'Utility.h' : No such file or directory
+         MyControlEngine.cpp
+     1>c:\users\law\desktop\cours\master 1 info\c++\tpc++\cpp\cortanamorpion\cortanamorpion\square.h(3): fatal error C1083: Impossible d'ouvrir le fichier include : 'Utility.h' : No such file or directory
+         main.cpp
+     1>c:\users\law\desktop\cours\master 1 info\c++\tpc++\cpp\cortanamorpion\cortanamorpion\mygraphicengine.h(4): fatal error C1083: Impossible d'ouvrir le fichier include : 'LibConstants.h' : No such file or directory
+         Génération de code en cours...
+     1>Génération du projet "C:\Users\law\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\CortanaMorpion\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:07.54
