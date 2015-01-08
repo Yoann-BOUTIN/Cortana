@@ -40,7 +40,7 @@ void IAMinimax::calculIA(int prof)
 					//Si ce score est plus grand
 					if ((tmp > max))
 					{
-						std::cout << "Tmp : " << tmp << std::endl;
+						std::cout << "Tmp : " << tmp << " , i : " << i << " , j :" << j << std::endl;
 						//On le choisit
 						max = tmp;
 						maxi = i;
