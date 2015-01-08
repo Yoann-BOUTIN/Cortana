@@ -27,8 +27,8 @@ void IAMinimax::calculIA(int prof)
 	if ((prof != 0) || (!(*morpion_).getEndGame()))
 	{
 		//On parcourt les cases du morpion
-		for (int i = 0; i < Constants::TAILLE_MORPION; i++){
-			for (int j = 0; j<Constants::TAILLE_MORPION; j++)
+		for (int i = 0; i < (*morpion_).getSize(); i++){
+			for (int j = 0; j<(*morpion_).getSize(); j++)
 			{
 				//Si la case est vide
 				if ((*morpion_).isSquareEmpty(i, j))
@@ -71,25 +71,25 @@ int IAMinimax::calcMin(Morpion *morpion, int prof)
 	if ((prof == 0) || (*morpion).getEndGame()){
 		return evalue(morpion);
 	}
+	
 
-
-	//On parcourt le plateau de jeu et on le joue si la case est vide
-	for (int i = 0; i < Constants::TAILLE_MORPION; i++){
-		for (int j = 0; j < Constants::TAILLE_MORPION; j++)
-		{
-			if ((*morpion).isSquareEmpty(i, j))
+		//On parcourt le plateau de jeu et on le joue si la case est vide
+	for (int i = 0; i < (*morpion_).getSize(); i++){
+		for (int j = 0; j < (*morpion_).getSize(); j++)
 			{
-				//On joue le coup
-				(*morpion).play(i, j, getShape());
-				tmp = calcMax(morpion, prof - 1);
-				if (tmp < min)
+				if ((*morpion).isSquareEmpty(i, j))
 				{
-					min = tmp;
+					//On joue le coup
+					(*morpion).play(i, j, getShape());
+					tmp = calcMax(morpion, prof - 1);
+					if (tmp < min)
+					{
+						min = tmp;
+					}
+					//On annule le coup
+					(*morpion).annuleCoup(i, j);
 				}
-				//On annule le coup
-				(*morpion).annuleCoup(i, j);
 			}
-		}
 		return min;
 	}
 }
@@ -105,23 +105,23 @@ int IAMinimax::calcMax(Morpion *morpion, int prof)
 		return evalue(morpion);
 	}
 
-	//On parcourt le plateau de jeu et on le joue si la case est vide
-	for (i = 0; i < Constants::TAILLE_MORPION; i++){
-		for (j = 0; j<Constants::TAILLE_MORPION; j++)
-		{
-			if ((*morpion).isSquareEmpty(i, j))
+		//On parcourt le plateau de jeu et on le joue si la case est vide
+	for (i = 0; i < (*morpion_).getSize(); i++){
+		for (j = 0; j<(*morpion_).getSize(); j++)
 			{
-				//On joue le coup
-				(*morpion).play(i, j, getShape());
-				tmp = calcMin(morpion, prof - 1);
-				if (tmp>max)
+				if ((*morpion).isSquareEmpty(i, j))
 				{
-					max = tmp;
+					//On joue le coup
+					(*morpion).play(i, j, getShape());
+					tmp = calcMin(morpion, prof - 1);
+					if (tmp>max)
+					{
+						max = tmp;
+					}
+					//On annule le coup
+					(*morpion).annuleCoup(i, j);
 				}
-				//On annule le coup
-				(*morpion).annuleCoup(i, j);
 			}
-		}
 		return max;
 	}
 }
@@ -192,13 +192,14 @@ int IAMinimax::evalue(Morpion * morpion)
 					//On incrémente d'un pion
 					cntpion++;
 					//Si c'est le même type du joueur courant
-					int currentShape = ((*morpion).getCurrentPlayer() == Constants::ORDI) ? getShape() : getOtherShape();
-					if ((*morpion).getSquare(i + k, i + j)->getForme() == currentShape)
+					if ((*morpion).getSquare(i + k, i + j)->getForme() == (*morpion).getCurrentShape()){
 						//On incrémente le compteur
 						cntjoueur++;
-					else
+					}
+					else{
 						//On décrémente le compteur
 						cntjoueur--;
+					}
 				}
 			}
 			score += calcScore(cntpion, cntjoueur);
@@ -217,11 +218,12 @@ int IAMinimax::evalue(Morpion * morpion)
 				if (!(*morpion).isSquareEmpty(i + k, ((*morpion).getSize() - 1) - (i + j)))
 				{
 					cntpion++;
-					int currentShape = ((*morpion).getCurrentPlayer() == Constants::ORDI) ? getShape() : getOtherShape();
-					if ((*morpion).getSquare(i + k, ((*morpion).getSize() - 1) - (i + j))->getForme() == currentShape)
+					if ((*morpion).getSquare(i + k, ((*morpion).getSize() - 1) - (i + j))->getForme() == (*morpion).getCurrentShape()){
 						cntjoueur++;
-					else
+					}
+					else{
 						cntjoueur--;
+					}
 				}
 			}
 			score += calcScore(cntpion, cntjoueur);
@@ -240,11 +242,12 @@ int IAMinimax::evalue(Morpion * morpion)
 				if (!(*morpion).isSquareEmpty(i, j))
 				{
 					cntpion++;
-					int currentShape = ((*morpion).getCurrentPlayer() == Constants::ORDI) ? getShape() : getOtherShape();
-					if ((*morpion).getSquare(i, j)->getForme() == currentShape)
+					if ((*morpion).getSquare(i, j)->getForme() == (*morpion).getCurrentShape()){
 						cntjoueur++;
-					else
+					}
+					else{
 						cntjoueur--;
+					}
 				}
 			}
 			score += calcScore(cntpion, cntjoueur);
@@ -262,17 +265,19 @@ int IAMinimax::evalue(Morpion * morpion)
 				if (!(*morpion).isSquareEmpty(j, i))
 				{
 					cntpion++;
-					int currentShape = ((*morpion).getCurrentPlayer() == Constants::ORDI) ? getShape() : getOtherShape();
-					if ((*morpion).getSquare(j, i)->getForme() == currentShape)
+					if ((*morpion).getSquare(j, i)->getForme() == (*morpion).getCurrentShape()){
 						cntjoueur++;
-					else
+					}
+					else{
 						cntjoueur--;
+					}
 				}
 			}
 			score += calcScore(cntpion, cntjoueur);
 		}
 	}
 	return score;
+
 }
 
 

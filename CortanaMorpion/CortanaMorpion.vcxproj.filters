@@ -16,9 +16,6 @@
     <Filter Include="Fichiers d%27en-tête\Engine">
       <UniqueIdentifier>{58d0a3dc-f4da-4926-841b-b4ab5a3bacc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Engine">
-      <UniqueIdentifier>{4685208e-3bc5-48c5-9ee7-ee19efd1e2be}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Plateau">
       <UniqueIdentifier>{be720bcc-34c4-42ae-a977-a083c1a7a8b3}</UniqueIdentifier>
     </Filter>
@@ -31,11 +28,8 @@
     <Filter Include="Fichiers sources\Joueur">
       <UniqueIdentifier>{5936c3b7-0035-41d0-a2fd-8670b8dacaf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Menu">
-      <UniqueIdentifier>{4268bd64-bd2f-471a-a8d8-d14ea0682e90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Menu">
-      <UniqueIdentifier>{dbd24842-ebcd-4da4-b48b-0bf656a27cba}</UniqueIdentifier>
+    <Filter Include="Fichiers sources\Engine">
+      <UniqueIdentifier>{4685208e-3bc5-48c5-9ee7-ee19efd1e2be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +63,6 @@
     <ClCompile Include="IAMinimax.cpp">
       <Filter>Fichiers sources\Joueur</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Fichiers sources\Menu</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -103,9 +94,6 @@
     </ClInclude>
     <ClInclude Include="IAMinimax.h">
       <Filter>Fichiers d%27en-tête\Joueur</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

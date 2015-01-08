@@ -411,6 +411,7 @@ void Morpion::play(int i, int j, int shape)
 	getSquare(i, j)->incCptClick();
 	incNbPions();
 	changeCurrentPlayer();
+	//std::cout << "PLAY" << std::endl;
 }
 
 void Morpion::annuleCoup(int i, int j)
@@ -419,26 +420,10 @@ void Morpion::annuleCoup(int i, int j)
 	getSquare(i, j)->setForme(Constants::EMPTY);
 	decNbPions();
 	changeCurrentPlayer();
+	//std::cout << "ANNULE" << std::endl;
 }
 
-void Morpion::changeCurrentPlayer()
-{
-	switch (pl_.size())
-	{
-	case 0:
-		currentPlayer_ = (currentPlayer_ == Constants::ORDI_TWO) ? Constants::ORDI : Constants::ORDI_TWO;
-		break;
-	case 1:
-		if ((currentPlayer_ == Constants::PLAYER) || (currentPlayer_ == Constants::ORDI_TWO)){
-			currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI_TWO : Constants::PLAYER;
-		}
-		else{
-			currentPlayer_ = (currentPlayer_ == Constants::PLAYER_TWO) ? Constants::ORDI : Constants::PLAYER_TWO;
-		}
-		break;
-	case 2:
-		currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::PLAYER_TWO : Constants::PLAYER;
-		break;
-	}
+void Morpion::changeCurrentPlayer(){
 	currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI : Constants::PLAYER;
+	currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
 }

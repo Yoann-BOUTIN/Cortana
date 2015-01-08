@@ -4,17 +4,16 @@
 #include "Morpion.h"
 #include "Player.h"
 #include "IA.h"
-#include "Menu.h"
 
 class MyGraphicEngine:public GraphicEngine {
    
 private:
-	Menu * menu_;
 	Morpion *morpion_;
+	Player *player_;
+	IA *ia_;
 
 public:
-	MyGraphicEngine(Menu * menu, Morpion *morpion) :
-	menu_(menu), morpion_(morpion){}
-
+	MyGraphicEngine(Morpion *morpion, Player *player, IA *ia) :
+	morpion_(morpion),player_(player),ia_(ia){}
     virtual void Draw();
 };

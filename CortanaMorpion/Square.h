@@ -25,13 +25,8 @@ public:
 	void setForme(const int forme){ forme_ = forme; };
 	void restoreCptClick(){ cptClick_ = 0; }
 	void setColor(float, float, float);
-	void setCptClick(int i){ cptClick_ = i; }
 	
 	float getX(){ return posX_; }
 	float getY(){ return posY_; }
 	float getSide(){ return side_; }
-
-	float getRed(){ return red_; }
-	float getGreen(){ return green_; }
-	float getBlue(){ return blue_; }
 };

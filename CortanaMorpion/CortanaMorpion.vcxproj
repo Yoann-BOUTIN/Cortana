@@ -88,7 +88,6 @@
     <ClCompile Include="IAMinimax.cpp" />
     <ClCompile Include="IARandom.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Morpion.cpp" />
     <ClCompile Include="MyControlEngine.cpp" />
     <ClCompile Include="MyGameEngine.cpp" />
@@ -101,7 +100,6 @@
     <ClInclude Include="IA.h" />
     <ClInclude Include="IAMinimax.h" />
     <ClInclude Include="IARandom.h" />
-    <ClInclude Include="Menu.h" />
     <ClInclude Include="Morpion.h" />
     <ClInclude Include="MyControlEngine.h" />
     <ClInclude Include="MyGameEngine.h" />

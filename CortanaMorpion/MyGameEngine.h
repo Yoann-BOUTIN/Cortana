@@ -3,17 +3,17 @@
 #include "Morpion.h"
 #include "Player.h"
 #include "IA.h"
-#include "Menu.h"
 
 class MyGameEngine:public GameEngine {
 
 private:
-	Menu * menu_;
 	Morpion *morpion_;
+	Player *player_;
+	IA * ia_;
 
 public:
-	MyGameEngine(Menu * menu, Morpion *morpion) :
-	menu_(menu),morpion_(morpion){}
-
+	MyGameEngine(Morpion *morpion, Player *player, IA *ia) :
+	morpion_(morpion), player_(player),ia_(ia){}
     virtual void idle();
+    
 };

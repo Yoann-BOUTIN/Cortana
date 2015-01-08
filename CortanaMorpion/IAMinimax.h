@@ -2,8 +2,8 @@
 #include "IA.h"
 #include <time.h>
 
-const int MINEVAL = -10000000000;
-const int MAXEVAL = 10000000000;
+const int MINEVAL = -100000;
+const int MAXEVAL = 100000;
 
 class IAMinimax :
 	public IA
