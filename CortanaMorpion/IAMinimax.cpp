@@ -6,92 +6,87 @@ IAMinimax::IAMinimax(const int shape, Morpion * morpion)
 	srand(time(NULL));
 	shape_ = shape;
 	morpion_ = morpion;
-	int fact = 1;
-	for (int i = 1; i <= (((*morpion).getSize() * (*morpion).getSize())); i++){
-		fact = fact * i;
-	}
-	prof_ = (1);
+	prof_ = 9;
 	cptEval_ = 0;
 }
 
 
 IAMinimax::~IAMinimax(){}
 
-void IAMinimax::calculIA(int prof)
+void IAMinimax::calculIA(Morpion * morpion, int prof)
 {
-	int tmp;
+	// JOUEUR COURANT EST L ORDI
+	int i, j, tmp;
 	int max = MINEVAL;
 	int maxi = -1, maxj = -1;
+
+
 	//Si la profondeur est nulle ou la partie est finie,
 	//on ne fait pas le calcul
-	if ((prof != 0) || (!(*morpion_).getEndGame()))
+	if ((prof != 0) || (!(*morpion).getEndGame()))
 	{
 		//On parcourt les cases du morpion
-		for (int i = 0; i < (*morpion_).getSize(); i++){
-			for (int j = 0; j<(*morpion_).getSize(); j++)
+		for (i = 0; i<3; i++)
+		for (j = 0; j<3; j++)
+		{
+			//Si la case est vide
+			if ((*morpion).isSquareEmpty(i, j))
 			{
-				//Si la case est vide
-				if ((*morpion_).isSquareEmpty(i, j))
+				//On simule qu'on joue cette case
+				(*morpion).play(i, j, (*morpion).getCurrentShape());
+				//On appelle la fonction calcMin pour lancer l'IA
+				tmp = calcMin(morpion, prof - 1);
+				//Si ce score est plus grand
+				if ((tmp>max) || ((tmp == max) && (rand() % 2 == 0)))
 				{
-					//On simule qu'on joue cette case
-					(*morpion_).play(i, j, getShape());
-					//On appelle la fonction calcMin pour lancer l'IA
-					tmp = calcMin(morpion_, prof);
-					//Si ce score est plus grand
-					if ((tmp > max))
-					{
-						std::cout << "Tmp : " << tmp << " , i : " << i << " , j :" << j << std::endl;
-						//On le choisit
-						max = tmp;
-						maxi = i;
-						maxj = j;
-					}
-					//On annule le coup
-					(*morpion_).annuleCoup(i, j);
+					//On le choisit
+					max = tmp;
+					maxi = i;
+					maxj = j;
 				}
+				//On annule le coup
+				(*morpion).annuleCoup(i, j);
 			}
 		}
 	}
 	//On jouera le coup maximal
-	//std::cout << "COUCOU 2 : " << maxi << std::endl;
-	//std::cout << "EVAL : " << cptEval_ << std::endl;
-
-	(*morpion_).play(maxi, maxj, getShape());
+	(*morpion).play(maxi, maxj, getShape());
 }
 
 
 int IAMinimax::calcMin(Morpion *morpion, int prof)
 {
-	int tmp;
+	//LA ON MINIMISE LE COUP DU JOUEUR
+	int i, j, tmp;
 	int min = MAXEVAL;
-	//std::cout << "PROFONDEUR : " << prof << std::endl;
-
-	//Si on est à la profondeur voulue, on retourne l'évaluation
-	//Si la partie est finie, on retourne l'évaluation de jeu
-	if ((prof == 0) || (*morpion).getEndGame()){
-		return evalue(morpion);
-	}
 	
+	//Si on est à la profondeur voulue, on retourne l'évaluation
+	if (prof == 0)
+		return evalue(morpion);
 
-		//On parcourt le plateau de jeu et on le joue si la case est vide
-	for (int i = 0; i < (*morpion_).getSize(); i++){
-		for (int j = 0; j < (*morpion_).getSize(); j++)
+	//Si la partie est finie, on retourne l'évaluation de jeu
+	if ((*morpion).getEndGame())
+		return evalue(morpion);
+
+	//On parcourt le plateau de jeu et on le joue si la case est vide
+	for (i = 0; i<3; i++)
+	for (j = 0; j<3; j++)
+	{
+		if ((*morpion).isSquareEmpty(i, j))
+		{
+			//On joue le coup
+			(*morpion).play(i, j,(*morpion).getCurrentShape());
+			//Maintenant tour de l'ordi donc on cherche a max!
+			tmp = calcMax(morpion, prof - 1);
+			if (tmp<min)
 			{
-				if ((*morpion).isSquareEmpty(i, j))
-				{
-					//On joue le coup
-					(*morpion).play(i, j, getShape());
-					tmp = calcMax(morpion, prof - 1);
-					if (tmp < min)
-					{
-						min = tmp;
-					}
-					//On annule le coup
-					(*morpion).annuleCoup(i, j);
-				}
+				min = tmp;
 			}
-		return min;
+		//On annule le coup
+		(*morpion).annuleCoup(i, j);
+		}
 	}
+	return min;
 }
 
 int IAMinimax::calcMax(Morpion *morpion, int prof)
@@ -100,43 +95,44 @@ int IAMinimax::calcMax(Morpion *morpion, int prof)
 	int max = MINEVAL;
 
 	//Si on est à la profondeur voulue, on retourne l'évaluation
-	//Si la partie est finie, on retourne l'évaluation de jeu
-	if ((prof == 0) || (*morpion_).getEndGame()){
+	if (prof == 0)
+	{
 		return evalue(morpion);
 	}
 
-		//On parcourt le plateau de jeu et on le joue si la case est vide
-	for (i = 0; i < (*morpion_).getSize(); i++){
-		for (j = 0; j<(*morpion_).getSize(); j++)
+	//Si la partie est finie, on retourne l'évaluation de jeu
+	if ((*morpion).getEndGame())
+		return evalue(morpion);
+
+	//On parcourt le plateau de jeu et on le joue si la case est vide
+	for (i = 0; i<3; i++)
+	for (j = 0; j<3; j++)
+	{
+		if ((*morpion).isSquareEmpty(i, j))
+		{
+			//On joue le coup
+			(*morpion).play(i, j, (*morpion).getCurrentShape());
+			tmp = calcMin(morpion, prof - 1);
+			if (tmp > max)
 			{
-				if ((*morpion).isSquareEmpty(i, j))
-				{
-					//On joue le coup
-					(*morpion).play(i, j, getShape());
-					tmp = calcMin(morpion, prof - 1);
-					if (tmp>max)
-					{
-						max = tmp;
-					}
-					//On annule le coup
-					(*morpion).annuleCoup(i, j);
-				}
+				max = tmp;
 			}
-		return max;
+			//On annule le coup
+			(*morpion).annuleCoup(i, j);
+		}
 	}
+	return max;
 }
 
 int IAMinimax::evalue(Morpion * morpion)
 {
-	//std::cout << "EVAL" << std::endl;
 	int score = 0;
-	int nbVerif;
-	int nbDecalage;
-	int cntjoueur, cntpion;
-	int i, j, k;
+
+	int cntjoueur, cntIa;
+	int i, j;
 
 	// Incrementer le compteur d'evaluation
-	cptEval_ += 1;
+	cptEval_++;
 
 	//Si le jeu est fini
 	if ((*morpion).getEndGame())
@@ -144,7 +140,7 @@ int IAMinimax::evalue(Morpion * morpion)
 		//Si l'IA a gagné, on retourne 1000 - le nombre de pions
 		if ((*morpion).getWinner() == Constants::ORDI)
 		{
-			return 1000 - comptePions();
+			return 1000;
 		}
 		else if (!(*morpion).isWin())
 		{
@@ -154,154 +150,121 @@ int IAMinimax::evalue(Morpion * morpion)
 		else
 		{
 			//Si l'IA a perdu, on retourne -1000 + le nombre de pions
-			return -1000 + comptePions();
+			return -1000;
 		}
 	}
-	switch ((*morpion).getSize())
-	{
-	case 3:
-		nbVerif = 3;
-		nbDecalage = 1;
-		break;
-	case 4:
-		nbVerif = 3;
-		nbDecalage = 2;
-		break;
-	case 5:
-		nbVerif = 4;
-		nbDecalage = 2;
-		break;
-	case 10:
-		nbVerif = 5;
-		nbDecalage = 6;
-		break;
-	}
+
 	//Diagonale 1
-
+	cntIa = 0;
+	cntjoueur = 0;
 	//On regarde chaque case
-
-	for (k = 0; k < nbDecalage; k++){
-		for (j = 0; j < nbDecalage; j++){
-			cntpion = 0;
-			cntjoueur = 0;
-			for (i = 0; i < nbVerif; i++)
+	for (i = 0; i<3; i++)
+	{
+		//Si la case n'est pas vide
+		if (!(*morpion).isSquareEmpty(i, i))
+		{
+			//On incrémente d'un pion
+			//Si c'est le même type du joueur courant
+			if ((*morpion).getSquare(i, i)->getForme() == (*morpion).getCurrentShape())
 			{
-				//Si la case n'est pas vide
-				if (!(*morpion).isSquareEmpty(i + k, i + j))
-				{
-					//On incrémente d'un pion
-					cntpion++;
-					//Si c'est le même type du joueur courant
-					if ((*morpion).getSquare(i + k, i + j)->getForme() == (*morpion).getCurrentShape()){
-						//On incrémente le compteur
-						cntjoueur++;
-					}
-					else{
-						//On décrémente le compteur
-						cntjoueur--;
-					}
-				}
+				if ((*morpion).getCurrentShape() == Constants::CROIX)
+					//On incrémente le compteur
+					cntjoueur++;
+				else
+					//On décrémente le compteur
+					cntIa++;
 			}
-			score += calcScore(cntpion, cntjoueur);
 		}
 	}
+	score += calcScore(cntIa, cntjoueur);
 
-	//std::cout << "score " << score << std::endl;
 	//Diagonale 2
-
-	for (k = 0; k < nbDecalage; k++){
-		for (j = 0; j < nbDecalage; j++){
-			cntpion = 0;
-			cntjoueur = 0;
-			for (i = 0; i < nbVerif; i++)
+	cntIa = 0;
+	cntjoueur = 0;
+	for (i = 0; i<3; i++)
+	{
+		if (!(*morpion).isSquareEmpty(i, 2 - i))
+		{
+			if ((*morpion).getSquare(i, 2 - i)->getForme() == (*morpion).getCurrentShape())
 			{
-				if (!(*morpion).isSquareEmpty(i + k, ((*morpion).getSize() - 1) - (i + j)))
-				{
-					cntpion++;
-					if ((*morpion).getSquare(i + k, ((*morpion).getSize() - 1) - (i + j))->getForme() == (*morpion).getCurrentShape()){
-						cntjoueur++;
-					}
-					else{
-						cntjoueur--;
-					}
-				}
+				if ((*morpion).getCurrentShape() == Constants::CROIX)
+					//On incrémente le compteur
+					cntjoueur++;
+				else
+					//On décrémente le compteur
+					cntIa++;
 			}
-			score += calcScore(cntpion, cntjoueur);
 		}
 	}
 
+	score += calcScore(cntIa, cntjoueur);
 
 	//Lignes
-	for (i = 0; i<(*morpion).getSize(); i++)
+	for (i = 0; i<3; i++)
 	{
-		for (k = 0; k < nbDecalage; k++){
-			cntpion = 0;
-			cntjoueur = 0;
-			for (j = k; j < nbVerif + k; j++)
+		cntIa = 0;
+		cntjoueur = 0;
+		for (j = 0; j<3; j++)
+		{
+			if (!(*morpion).isSquareEmpty(i, j))
 			{
-				if (!(*morpion).isSquareEmpty(i, j))
+				if ((*morpion).getSquare(i, j)->getForme() == (*morpion).getCurrentShape())
 				{
-					cntpion++;
-					if ((*morpion).getSquare(i, j)->getForme() == (*morpion).getCurrentShape()){
+					if ((*morpion).getCurrentShape() == Constants::CROIX)
+						//On incrémente le compteur
 						cntjoueur++;
-					}
-					else{
-						cntjoueur--;
-					}
+					else
+						//On décrémente le compteur
+						cntIa++;
 				}
 			}
-			score += calcScore(cntpion, cntjoueur);
 		}
+
+		score += calcScore(cntIa, cntjoueur);
 	}
 
 	//Colonnes
-	for (i = 0; i<(*morpion).getSize(); i++)
+	for (i = 0; i<3; i++)
 	{
-		cntpion = 0;
+		cntIa = 0;
 		cntjoueur = 0;
-		for (k = 0; k < nbDecalage; k++){
-			for (j = k; j < nbVerif + k; j++)
+		for (j = 0; j<3; j++)
+		{
+			if (!(*morpion).isSquareEmpty(j, i))
 			{
-				if (!(*morpion).isSquareEmpty(j, i))
+				if ((*morpion).getSquare(j, i)->getForme() == (*morpion).getCurrentShape())
 				{
-					cntpion++;
-					if ((*morpion).getSquare(j, i)->getForme() == (*morpion).getCurrentShape()){
+					if ((*morpion).getCurrentShape() == Constants::CROIX)
+						//On incrémente le compteur
 						cntjoueur++;
-					}
-					else{
-						cntjoueur--;
-					}
+					else
+						//On décrémente le compteur
+						cntIa++;
 				}
 			}
-			score += calcScore(cntpion, cntjoueur);
 		}
+		score += calcScore(cntIa, cntjoueur);
 	}
 	return score;
-
 }
 
 
-int IAMinimax::calcScore(int cntpion, int cntjoueur)
+int IAMinimax::calcScore(int cntIa, int cntjoueur)
 {
-	//On regarde le nombre de pions
-	switch (cntpion)
-	{
-	case 1:
-		return 10 * cntjoueur;
-	case 2:
-		return 30 * cntjoueur;
-	default:
-		return 0;
-	}
+	if (cntIa == cntjoueur) return 0;
+	if (cntIa == 2) return 200;
+	if (cntIa == 1) return 50;
+	if (cntjoueur == 2) return -200;
+	if (cntjoueur == 1) return -50;
 }
 
-int IAMinimax::comptePions()
+int IAMinimax::comptePions(Morpion * morpion)
 {
 	int i, j, cnt = 0;
 	for (i = 0; i<3; i++)
 	for (j = 0; j<3; j++)
 	{
-		if (!(*morpion_).isSquareEmpty(i, j))
+		if (!(*morpion).isSquareEmpty(i, j))
 			cnt++;
 	}
 	return cnt;

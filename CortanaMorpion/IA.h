@@ -15,7 +15,7 @@ public:
 
 	int getShape(){ return shape_;}
 	Morpion* getMorpion(){ return morpion_; }
-	virtual void calculIA(int prof) = 0;
+	virtual void calculIA(Morpion *morpion, int prof) = 0;
 
 	int getProf(){ return prof_; }
 	void decProf(){ prof_--; }

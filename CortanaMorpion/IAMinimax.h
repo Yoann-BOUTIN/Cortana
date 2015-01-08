@@ -12,12 +12,12 @@ public:
 	IAMinimax(const int shape, Morpion * morpion);
 	~IAMinimax();
 
-	void calculIA(int prof);
+	void calculIA(Morpion * morpion, int prof);
 	int calcMin(Morpion *morpion, int prof);
 	int calcMax(Morpion *morpion, int prof);
 	int evalue(Morpion * morpion);
 	int calcScore(int cntpion, int cntjoueur);
-	int comptePions();
+	int comptePions(Morpion *morpion);
 	int getOtherShape(){ return (shape_ == Constants::CROIX) ? Constants::CROIX : Constants::ROND; }
 };
 

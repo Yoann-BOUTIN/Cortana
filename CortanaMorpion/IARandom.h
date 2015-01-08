@@ -9,6 +9,6 @@ public:
 	IARandom(const int shape, Morpion *morpion);
 	~IARandom();
 
-	void calculIA(int prof);
+	void calculIA(Morpion *morpion, int prof);
 };
 
