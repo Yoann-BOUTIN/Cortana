@@ -1,11 +1,17 @@
 #pragma once
 #include "Square.h"
 #include "Constants.h"
+#include "IA.h"
+#include "IAMinimax.h"
+#include "IARandom.h"
+#include "Player.h"
 
 class Morpion
 {
 private:
 	std::vector<std::vector<Square *> > squares_;
+	std::vector< Player *> pl_;
+	std::vector< IA *> ia_;
 	
 	float squareSize_;
 	
@@ -24,6 +30,10 @@ public:
 	~Morpion();
 
 	Square* getSquare(int i, int j){ return squares_[i][j]; }
+	void setPlayer(std::vector< Player *> pl){ pl_ = pl; }
+	void setIA(std::vector< IA *> ia){ ia_ = ia; }
+	IA* getIA(int i){ return ia_[i]; }
+	Player* getPlayer(int i){ return pl_[i]; }
 	
 	float getSquareSize(){ return squareSize_; }
 	
@@ -35,7 +45,7 @@ public:
 	void play(int i, int j, int shape);
 	void annuleCoup(int i, int j);
 	void setCurrentPlayer(int current){ currentPlayer_ = current; }
-	void changeCurrentPlayer(){ currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI : Constants::PLAYER; }
+	void changeCurrentPlayer();
 	void incNbPions(){ nbPions_++; }
 	void decNbPions(){ nbPions_--; }
 	void endGame();

@@ -10,8 +10,12 @@ void MyGameEngine::idle()
 		//SINON L ORDI JOUE
 		if ((*morpion_).getCurrentPlayer() == Constants::ORDI && !(*morpion_).getEndGame())
 		{
-			(*ia_)[0]->calculIA((*ia_)[0]->getProf());
-			(*ia_)[0]->decProf();
+			(*morpion_).getIA(0)->calculIA((*morpion_).getIA(0)->getProf());
+			(*morpion_).getIA(0)->decProf();
+		}
+		else if ((*morpion_).getCurrentPlayer() == Constants::ORDI_TWO && !(*morpion_).getEndGame()){
+			(*morpion_).getIA(1)->calculIA((*morpion_).getIA(1)->getProf());
+			(*morpion_).getIA(1)->decProf();
 		}
 	}
 }

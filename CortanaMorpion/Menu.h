@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "Square.h"
 #include "IA.h"
+#include "IARandom.h"
+#include "IAMinimax.h"
 
 class Menu
 {
@@ -20,6 +22,9 @@ private:
 	int choixTaille_;
 	int choixJ1_;
 	int choixJ2_;
+	bool taille_;
+	bool J1_;
+	bool J2_;
 	Square *selectionValider_;
 
 public:
@@ -39,9 +44,12 @@ public:
 	void setColor(float f);
 	bool getReady(){ return gameReady_; }
 	void setReady(){ gameReady_ = true; }
-	void incChoixTaille(){ choixTaille_ = 1; }
-	void incChoixJ1(){ choixJ1_ = 1; }
-	void incChoixJ2(){ choixJ2_ = 1; }
+	int getChoixTaille(){ return choixTaille_; }
+	int getChoixJ1(){ return choixJ1_; }
+	int getChoixJ2(){ return choixJ2_; }
+	void setChoixTaille(int n){ choixTaille_ = n; }
+	void setChoixJ1(int n){ choixJ1_ = n; }
+	void setChoixJ2(int n){ choixJ2_ = n; }
 	bool choixOK(){ return ((choixTaille_ + choixJ1_ + choixJ2_) == 3); }
 };
 

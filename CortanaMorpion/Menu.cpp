@@ -9,13 +9,16 @@ Menu::Menu()
 	for (int i = 0; i < 4; i++){
 		selectionJ1_.emplace_back(new Square(-0.7f + (i / 2.0f), 0.0f, 0.4f, 0.1f, 0.1f, 0.1f));
 	}
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 4; i++){
 		selectionJ2_.emplace_back(new Square(-0.7f + (i / 2.0f), -0.3f, 0.4f, 0.1, 0.1f, 0.1f));
 	}
 	selectionValider_ = new Square(-0.1f, -0.6f, 0.25f, 0.1f, 0.1f, 0.1f);
 	choixTaille_ = 0;
 	choixJ1_ = 0;
 	choixJ2_ = 0;
+	taille_ = false;
+	J1_ = false;
+	J2_ = false;
 	gameReady_ = false;
 }
 
@@ -97,22 +100,8 @@ void Menu::clickTaille(Morpion *morpion, float posx, float posy){
 			}
 			selectionTaille_[k]->setCptClick(1);
 			selectionTaille_[k]->setColor(0.5f, 0.5f, 0.5f);
-			incChoixTaille();
-			switch (k)
-			{
-			case 0:
-				(*morpion).setSize(Constants::TAILLE_MORPION_3);
-				break;
-			case 1:
-				(*morpion).setSize(Constants::TAILLE_MORPION_4);
-				break;
-			case 2:
-				(*morpion).setSize(Constants::TAILLE_MORPION_5);
-				break;
-			case 3:
-				(*morpion).setSize(Constants::TAILLE_MORPION_10);
-				break;
-			}
+			setChoixTaille(k);
+			taille_ = true;
 		}
 	}
 }
@@ -127,19 +116,8 @@ void Menu::clickJ1(float posx, float posy){
 			}
 			selectionJ1_[k]->setCptClick(1);
 			selectionJ1_[k]->setColor(0.5f, 0.5f, 0.5f);
-			incChoixJ1();
-			switch (k)
-			{
-			case 0:
-
-				break;
-			case 1:
-				break;
-			case 2:
-				break;
-			case 3:
-				break;
-			}
+			setChoixJ1(k);
+			J1_ = true;
 		}
 	}
 }
@@ -154,25 +132,63 @@ void Menu::clickJ2(float posx, float posy){
 			}
 			selectionJ2_[k]->setCptClick(1);
 			selectionJ2_[k]->setColor(0.5f, 0.5f, 0.5f);
-			incChoixJ2();
-			switch (k)
-			{
-			case 0:
-				break;
-			case 1:
-				break;
-			case 2:
-				break;
-			case 3:
-				break;
-			}
+			setChoixJ2(k);
+			J2_ = true;
 		}
 	}
 }
 
 void Menu::clickValider(Morpion *morpion, float posx, float posy){
 	if ((posx >= selectionValider_->getX()) && (posx <= selectionValider_->getX() + 0.3f) && (posy >= selectionValider_->getY()) && (posy <= selectionValider_->getY() + 0.2f) && choixOK()){
+		switch (choixTaille_)
+		{
+		case 0:
+			(*morpion).setSize(Constants::TAILLE_MORPION_3);
+			break;
+		case 1:
+			(*morpion).setSize(Constants::TAILLE_MORPION_4);
+			break;
+		case 2:
+			(*morpion).setSize(Constants::TAILLE_MORPION_5);
+			break;
+		case 3:
+			(*morpion).setSize(Constants::TAILLE_MORPION_10);
+			break;
+		}
 		(*morpion).init();
+		switch (choixJ1_)
+		{
+		case 0:
+			ia_.emplace_back(new IARandom(Constants::CROIX, morpion));
+			(*morpion).setCurrentPlayer(Constants::ORDI);
+			break;
+		case 1:
+			ia_.emplace_back(new IAMinimax(Constants::CROIX, morpion));
+			(*morpion).setCurrentPlayer(Constants::ORDI);
+			break;
+		case 2:
+			break;
+		case 3:
+			pl_.emplace_back(new Player(Constants::CROIX));
+			(*morpion).setCurrentPlayer(Constants::PLAYER);
+			break;
+		}
+		switch (choixJ2_)
+		{
+		case 0:
+			ia_.emplace_back(new IARandom(Constants::ROND, morpion));
+			break;
+		case 1:
+			ia_.emplace_back(new IAMinimax(Constants::ROND, morpion));
+			break;
+		case 2:
+			break;
+		case 3:
+			pl_.emplace_back(new Player(Constants::ROND));
+			break;
+		}
+		(*morpion).setPlayer(pl_);
+		(*morpion).setIA(ia_);
 		setReady();
 	}
 }

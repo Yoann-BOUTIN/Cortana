@@ -1,31 +1,218 @@
-﻿La génération a démarré 07/01/2015 18:41:39.
-     1>Projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 08/01/2015 01:25:40.
+     1>Projet "C:\Users\Yoann\Desktop\Morpion\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyControlEngine.cpp MyGameEngine.cpp MyGraphicEngine.cpp main.cpp
-         MyControlEngine.cpp
-     1>MyControlEngine.cpp(22): error C2065: 'player_' : identificateur non déclaré
-     1>MyControlEngine.cpp(22): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
-                 le type est 'unknown-type'
-     1>MyControlEngine.cpp(22): error C2660: 'Morpion::play' : la fonction ne prend pas 2 arguments
-         MyGameEngine.cpp
-     1>MyGameEngine.cpp(13): error C2065: 'ia_' : identificateur non déclaré
-     1>MyGameEngine.cpp(13): error C2228: la partie gauche de '.calculIA' doit avoir un class/struct/union
-                 le type est 'unknown-type'
-     1>MyGameEngine.cpp(13): error C2228: la partie gauche de '.getProf' doit avoir un class/struct/union
-                 le type est 'unknown-type'
-     1>MyGameEngine.cpp(14): error C2065: 'ia_' : identificateur non déclaré
-     1>MyGameEngine.cpp(14): error C2228: la partie gauche de '.decProf' doit avoir un class/struct/union
-                 le type est 'unknown-type'
-         MyGraphicEngine.cpp
-     1>MyGraphicEngine.cpp(10): error C2065: 'player_' : identificateur non déclaré
-     1>MyGraphicEngine.cpp(10): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
-                 le type est 'unknown-type'
-     1>MyGraphicEngine.cpp(19): error C2065: 'player_' : identificateur non déclaré
-     1>MyGraphicEngine.cpp(19): error C2228: la partie gauche de '.getShape' doit avoir un class/struct/union
-                 le type est 'unknown-type'
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IA.cpp IAMinimax.cpp IARandom.cpp main.cpp Menu.cpp Morpion.cpp MyControlEngine.cpp MyGameEngine.cpp MyGraphicEngine.cpp
+         IA.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(10): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(21): error C2065: 'shape_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(7): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): warning C4183: 'getIA' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2678: '=' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(948): peut être 'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(const std::vector<_Ty,_Alloc_types::_Alloc> &)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(926): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::initializer_list<_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::value_type>)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(822): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::vector<_Ty,_Alloc_types::_Alloc> &&)'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, std::vector)'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2582: 'operator =' fonction non disponible dans 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2678: '[' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1196): peut être '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1180): ou       '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::const_reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type) const'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, int)'
+         IAMinimax.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(7): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): warning C4183: 'getIA' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2678: '=' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(948): peut être 'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(const std::vector<_Ty,_Alloc_types::_Alloc> &)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(926): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::initializer_list<_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::value_type>)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(822): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::vector<_Ty,_Alloc_types::_Alloc> &&)'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, std::vector)'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2582: 'operator =' fonction non disponible dans 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2678: '[' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1196): peut être '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1180): ou       '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::const_reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type) const'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, int)'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+         IARandom.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(10): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(21): error C2065: 'shape_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): warning C4183: 'getIA' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2678: '=' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(948): peut être 'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(const std::vector<_Ty,_Alloc_types::_Alloc> &)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(926): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::initializer_list<_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::value_type>)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(822): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::vector<_Ty,_Alloc_types::_Alloc> &&)'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, std::vector)'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2582: 'operator =' fonction non disponible dans 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2678: '[' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1196): peut être '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1180): ou       '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::const_reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type) const'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, int)'
          main.cpp
-     1>Génération du projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): warning C4183: 'getMorpion' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2065: 'morpion_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+         Menu.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(10): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(21): error C2065: 'shape_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(7): error C2504: 'IA' : classe de base non définie
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(14): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2065: 'IA' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2059: erreur de syntaxe : '>'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(650) : voir la déclaration de 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): warning C4183: 'getIA' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2678: '=' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(948): peut être 'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(const std::vector<_Ty,_Alloc_types::_Alloc> &)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(926): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::initializer_list<_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::value_type>)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(822): ou       'std::vector<_Ty,_Alloc_types::_Alloc> &std::vector<_Ty,_Alloc>::operator =(std::vector<_Ty,_Alloc_types::_Alloc> &&)'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, std::vector)'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(34): error C2582: 'operator =' fonction non disponible dans 'std::vector'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\Morpion.h(35): error C2678: '[' binaire : aucun opérateur trouvé qui accepte un opérande de partie gauche de type 'std::vector' (ou il n'existe pas de conversion acceptable)
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1196): peut être '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type)'
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector(1180): ou       '_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::const_reference std::vector<_Ty,_Alloc>::operator [](_Vector_alloc<!std::is_empty<_Alloc_types::_Alloc>::value,std::_Vec_base_types<_Ty,_Alloc_types::_Alloc>>::size_type) const'
+                 lors de la tentative de mise en correspondance de la liste des arguments '(std::vector, int)'
+     1>Menu.cpp(28): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(47): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(65): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(94): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(96): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(110): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(112): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(126): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(128): warning C4018: '<' : incompatibilité signed/unsigned
+     1>Menu.cpp(162): error C2661: 'IARandom::IARandom' : aucune fonction surchargée ne nécessite 2 arguments
+     1>Menu.cpp(166): error C2661: 'IAMinimax::IAMinimax' : aucune fonction surchargée ne nécessite 2 arguments
+     1>Menu.cpp(179): error C2661: 'IARandom::IARandom' : aucune fonction surchargée ne nécessite 2 arguments
+     1>Menu.cpp(182): error C2661: 'IAMinimax::IAMinimax' : aucune fonction surchargée ne nécessite 2 arguments
+     1>Menu.cpp(191): error C2664: 'void Morpion::setIA(std::vector)' : impossible de convertir l'argument 1 de 'std::vector<IA *,std::allocator<_Ty>>' en 'std::vector'
+                 with
+                 [
+                     _Ty=IA *
+                 ]
+                 Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
+         Morpion.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): warning C4183: 'getMorpion' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2065: 'morpion_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+         MyControlEngine.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): warning C4183: 'getMorpion' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2065: 'morpion_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+         MyGameEngine.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): warning C4183: 'getMorpion' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2065: 'morpion_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+         MyGraphicEngine.cpp
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2143: erreur de syntaxe : absence de ';' avant '*'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): warning C4183: 'getMorpion' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IA.h(17): error C2065: 'morpion_' : identificateur non déclaré
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(5): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(6): warning C4309: 'initialisation' : troncation de valeur de constante
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(12): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(16): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(17): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IAMinimax.h(18): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\IARandom.h(9): error C2061: erreur de syntaxe : identificateur 'Morpion'
+     1>Génération du projet "C:\Users\Yoann\Desktop\Morpion\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
 ÉCHEC de la build.
 
-Temps écoulé 00:00:02.68
+Temps écoulé 00:00:06.31

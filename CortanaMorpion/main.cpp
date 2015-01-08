@@ -19,14 +19,10 @@ int main(int argc, char * argv[])
 	Menu menu;
 	//CREATION DU MORPION
 	Morpion *morpion_ = nullptr;
-	//CREATION D UNE INSTANCE PLAYER
-	std::vector<Player *> players_;
-	//CREATION D UNE INSTANCE IA
-	std::vector<IA *> ias_;
 
-	GraphicEngine * ge = new MyGraphicEngine(&menu, morpion_,&players_,&ias_);
-	GameEngine * gme = new MyGameEngine(&menu, morpion_, &players_, &ias_);
-	ControlEngine * ce = new MyControlEngine(&menu, morpion_, &players_, &ias_);
+	GraphicEngine * ge = new MyGraphicEngine(&menu, morpion_);
+	GameEngine * gme = new MyGameEngine(&menu, morpion_);
+	ControlEngine * ce = new MyControlEngine(&menu, morpion_);
 	
 	e.setGraphicEngine(ge);
 	e.setGameEngine(gme);
