@@ -18,6 +18,8 @@ int main(int argc, char * argv[])
 	bool notReady = true;
 	int taille;
 	int player1, player2;
+	std::vector<Player *> players_;
+	std::vector<IA *> ias_;
 
 	GraphicEngine * ge;
 	GameEngine * gme;
@@ -57,23 +59,42 @@ int main(int argc, char * argv[])
 	}
 	//CREATION DU MORPION
 	(*morpion_).init();
-	//INITIALISATION DU JOUEUR COURANT
-	(*morpion_).setCurrentPlayer(Constants::PLAYER, Constants::CROIX);
 	//CREATION D UNE INSTANCE PLAYER
 	Player * player_;
 	switch (player1)
 	{
 	case 0:
-		player_ = new Player(Constants::CROIX);
+		players_.emplace_back(Constants::CROIX);
+		//INITIALISATION DU JOUEUR COURANT
+		(*morpion_).setCurrentPlayer(Constants::PLAYER, Constants::CROIX);
+		break;
+	case 1:
+		ias_.push_back(new IARandom(Constants::CROIX, morpion_));
+		//INITIALISATION DU JOUEUR COURANT
+		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
+		break;
+	case 2:
+		ias_.push_back(new IAMinimax(Constants::CROIX, morpion_));
+		//INITIALISATION DU JOUEUR COURANT
+		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
+		break;
+	case 3:
+		ias_.push_back(new IARandom(Constants::CROIX, morpion_));
+		//INITIALISATION DU JOUEUR COURANT
+		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
 		break;
 	default:
-		player_ = new Player(Constants::CROIX);
+		players_.emplace_back(Constants::CROIX);
+		//INITIALISATION DU JOUEUR COURANT
+		(*morpion_).setCurrentPlayer(Constants::PLAYER, Constants::CROIX);
 		break;
 	}
 	IA * ia_;
 	//CREATION D UNE INSTANCE IA
 	switch (player2)
 	{
+	case 0:
+			players_.emplace_back(Constants::ROND);
 	case 1:
 		ia_ = new IARandom(Constants::ROND, morpion_);
 		break;

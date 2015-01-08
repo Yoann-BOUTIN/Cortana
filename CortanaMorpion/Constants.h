@@ -11,6 +11,7 @@ namespace Constants
 
 	//ABOUT PLAYER
 	const int EMPTY			= -999;
+	const int ORDI_TWO		= -4;
 	const int PLAYER		= -3;
 	const int PLAYER_TWO	= -2;
 	const int ORDI			= -1;

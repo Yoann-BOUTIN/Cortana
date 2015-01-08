@@ -423,7 +423,32 @@ void Morpion::annuleCoup(int i, int j)
 	//std::cout << "ANNULE" << std::endl;
 }
 
-void Morpion::changeCurrentPlayer(){
+void Morpion::changeCurrentPlayer()
+{
+	switch ((*players_).size())
+	{
+	case 0:
+		currentPlayer_ = (currentPlayer_ == Constants::ORDI_TWO) ? Constants::ORDI : Constants::ORDI_TWO;
+		currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
+		break;
+	case 1:
+		if (currentPlayer_ == Constants::PLAYER)
+		{
+
+		}
+		else if (currentPlayer_ == Constants::PLAYER_TWO)
+		{
+
+		}
+		else
+		{
+
+		}
+		break;
+	case 2:
+		currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::PLAYER_TWO : Constants::PLAYER;
+		currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
+		break;
+	}
 	currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI : Constants::PLAYER;
-	currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
 }
