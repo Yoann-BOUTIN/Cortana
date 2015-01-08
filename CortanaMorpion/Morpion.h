@@ -1,12 +1,13 @@
 #pragma once
 #include "Square.h"
 #include "Constants.h"
+#include "Player.h"
 
 class Morpion
 {
 private:
 	std::vector<std::vector<Square *> > squares_;
-	std::vector<Player *> *players_;
+	std::vector<Player *> players_;
 	
 	float squareSize_;
 	
@@ -43,7 +44,7 @@ public:
 	void decNbPions(){ nbPions_--; }
 	void endGame();
 	void setEndGame(bool end){ endGame_ = end; }
-	void setPlayers(std::vector<Player * >*players){ players_ = players; }
+	void setPlayers(std::vector<Player * >players){ players_ = players; }
 	
 	bool isSquareEmpty(int i, int j){ return squares_[i][j]->getCptClick() == 0; }
 	bool isFull(){  return nbPions_ >= size_ * size_; }

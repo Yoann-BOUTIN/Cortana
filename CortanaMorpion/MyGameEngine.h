@@ -8,12 +8,12 @@ class MyGameEngine:public GameEngine {
 
 private:
 	Morpion *morpion_;
-	Player *player_;
-	IA * ia_;
+	std::vector<Player *> players_;
+	std::vector<IA *> ias_;
 
 public:
-	MyGameEngine(Morpion *morpion, Player *player, IA *ia) :
-	morpion_(morpion), player_(player),ia_(ia){}
+	MyGameEngine(Morpion *morpion, std::vector<Player *> players, std::vector<IA *> ias) :
+	morpion_(morpion), players_(players),ias_(ias){}
     virtual void idle();
     
 };

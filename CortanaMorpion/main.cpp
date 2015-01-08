@@ -31,13 +31,13 @@ int main(int argc, char * argv[])
 		std::cout << "# Bienvenu dans Cortana morpion #" << std::endl;
 		std::cout << "#################################" << std::endl;
 
-		std::cout << "Veuillez choisir la taille du morpion :  3 pour (3x3), 5 pour (5x5), 10 pour (10x10) ?" << std::endl;
+		std::cout << "Veuillez choisir la taille du morpion :  3 pour (3x3), 5 pour (5x5), 10 pour (10x10)" << std::endl;
 		std::cin >> taille;
 		
-		std::cout << "Veuillez le joueur 1: 0 pour Humain, 1 pour Random, 2 pour MinMax, 3 pour AlphaBeta ?" << std::endl;
+		std::cout << "Veuillez choisir le joueur 1: 0 <-> Humain, 1 <-> Random, 2 <-> MinMax, 3 <-> AlphaBeta" << std::endl;
 		std::cin >> player1;
 
-		std::cout << "Veuillez le joueur 2: 0 pour Humain, 1 pour Random, 2 pour MinMax, 3 pour AlphaBeta ?" << std::endl;
+		std::cout << "Veuillez choisir le joueur 2: 0 <-> Humain, 1 <-> Random, 2 <-> MinMax, 3 <-> AlphaBeta" << std::endl;
 		std::cin >> player2;
 		notReady = false;
 	}
@@ -60,11 +60,10 @@ int main(int argc, char * argv[])
 	//CREATION DU MORPION
 	(*morpion_).init();
 	//CREATION D UNE INSTANCE PLAYER
-	Player * player_;
 	switch (player1)
 	{
 	case 0:
-		players_.emplace_back(Constants::CROIX);
+		players_.push_back(new Player(Constants::CROIX));
 		//INITIALISATION DU JOUEUR COURANT
 		(*morpion_).setCurrentPlayer(Constants::PLAYER, Constants::CROIX);
 		break;
@@ -84,30 +83,32 @@ int main(int argc, char * argv[])
 		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
 		break;
 	default:
-		players_.emplace_back(Constants::CROIX);
+		players_.push_back(new Player(Constants::CROIX));
 		//INITIALISATION DU JOUEUR COURANT
 		(*morpion_).setCurrentPlayer(Constants::PLAYER, Constants::CROIX);
 		break;
 	}
-	IA * ia_;
 	//CREATION D UNE INSTANCE IA
 	switch (player2)
 	{
 	case 0:
-			players_.emplace_back(Constants::ROND);
+			players_.push_back(new Player(Constants::ROND));
 	case 1:
-		ia_ = new IARandom(Constants::ROND, morpion_);
+		ias_.push_back(new IARandom(Constants::ROND, morpion_));
 		break;
 	case 2:
-		ia_ = new IAMinimax(Constants::ROND, morpion_);
+		ias_.push_back(new IAMinimax(Constants::ROND, morpion_));
 		break;
 	default:
-		ia_ = new IAMinimax(Constants::ROND, morpion_);
+		ias_.push_back(new IAMinimax(Constants::ROND, morpion_));
 		break;
 	}
-	ge = new MyGraphicEngine(morpion_, player_, ia_);
-	gme = new MyGameEngine(morpion_, player_, ia_);
-	ce = new MyControlEngine(morpion_, player_, ia_);
+
+	(*morpion_).setPlayers(players_);
+
+	ge = new MyGraphicEngine(morpion_, players_, ias_);
+	gme = new MyGameEngine(morpion_, players_, ias_);
+	ce = new MyControlEngine(morpion_, players_, ias_);
 
 	e.setGraphicEngine(ge);
 	e.setGameEngine(gme);

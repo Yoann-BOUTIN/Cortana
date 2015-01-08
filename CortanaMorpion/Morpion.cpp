@@ -4,7 +4,7 @@ Morpion::Morpion(const int size) : size_(size), squareSize_(2.0f / size), nbPion
 {
 	switch (size)
 	{
-	case 3:case 4:
+	case 3:
 		nbPionsToWin_ = 3;
 		break;
 	case 5:
@@ -53,25 +53,6 @@ bool Morpion::verifLigne(int ligne, int colonne, int forme){
 		if (colonne == 0){
 			for (int i = 1; i < 3; i++){
 				if (getSquare(ligne, i)->getForme() == forme){
-					compteur += 1;
-					if (compteur == nbPionsToWin_){
-						return true;
-					}
-				}
-				else{
-					return false;
-				}
-			}
-		}
-		else{
-			return false;
-		}
-		break;
-		//MORPION TAILLE 4
-	case 4:
-		if (colonne <= 1){
-			for (int i = 1; i < 3; i++){
-				if (getSquare(ligne, colonne + i)->getForme() == forme){
 					compteur += 1;
 					if (compteur == nbPionsToWin_){
 						return true;
@@ -153,24 +134,6 @@ bool Morpion::verifColonne(int ligne, int colonne, int forme){
 			return false;
 		}
 		break;
-	case 4:
-		if (ligne <= 1){
-			for (int i = 1; i < 3; i++){
-				if (getSquare(ligne + i, colonne)->getForme() == forme){
-					compteur += 1;
-					if (compteur == nbPionsToWin_){
-						return true;
-					}
-				}
-				else{
-					return false;
-				}
-			}
-		}
-		else{
-			return false;
-		}
-		break;
 	case 5:
 		if (ligne <= 1){
 			for (int i = 1; i < 4; i++){
@@ -236,24 +199,6 @@ bool Morpion::verifDiagoGauche(int ligne, int colonne, int forme){
 			return false;
 		}
 		break;
-	case 4:
-		if ((ligne <= 1) && (colonne >= size_ - 2)){
-			for (int i = 1; i < 3; i++){
-				if (getSquare(ligne + i, colonne - i)->getForme() == forme){
-					compteur += 1;
-					if (compteur == nbPionsToWin_){
-						return true;
-					}
-				}
-				else{
-					return false;
-				}
-			}
-		}
-		else{
-			return false;
-		}
-		break;
 	case 5:
 		if ((ligne <= 1) && (colonne >= size_ - 2)){
 			for (int i = 1; i < 4; i++){
@@ -305,24 +250,6 @@ bool Morpion::verifDiagoDroite(int ligne, int colonne, int forme){
 		if ((ligne == 0) && (colonne == 0)){
 			for (int i = 1; i < 3; i++){
 				if (getSquare(i, i)->getForme() == forme){
-					compteur += 1;
-					if (compteur == nbPionsToWin_){
-						return true;
-					}
-				}
-				else{
-					return false;
-				}
-			}
-		}
-		else{
-			return false;
-		}
-		break;
-	case 4:
-		if ((ligne <= 1) && (colonne <= 1)){
-			for (int i = 1; i < 3; i++){
-				if (getSquare(ligne + i, colonne + i)->getForme() == forme){
 					compteur += 1;
 					if (compteur == nbPionsToWin_){
 						return true;
@@ -425,30 +352,22 @@ void Morpion::annuleCoup(int i, int j)
 
 void Morpion::changeCurrentPlayer()
 {
-	switch ((*players_).size())
+	switch (players_.size())
 	{
 	case 0:
 		currentPlayer_ = (currentPlayer_ == Constants::ORDI_TWO) ? Constants::ORDI : Constants::ORDI_TWO;
-		currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
 		break;
 	case 1:
-		if (currentPlayer_ == Constants::PLAYER)
-		{
-
+		if ((currentPlayer_ == Constants::PLAYER) || (currentPlayer_ == Constants::ORDI_TWO)){
+			currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI_TWO : Constants::PLAYER;
 		}
-		else if (currentPlayer_ == Constants::PLAYER_TWO)
-		{
-
-		}
-		else
-		{
-
+		else{
+			currentPlayer_ = (currentPlayer_ == Constants::PLAYER_TWO) ? Constants::ORDI : Constants::PLAYER_TWO;
 		}
 		break;
 	case 2:
 		currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::PLAYER_TWO : Constants::PLAYER;
-		currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
 		break;
 	}
-	currentPlayer_ = (currentPlayer_ == Constants::PLAYER) ? Constants::ORDI : Constants::PLAYER;
+	currentShape_ = (currentShape_ == Constants::CROIX) ? Constants::ROND : Constants::CROIX;
 }

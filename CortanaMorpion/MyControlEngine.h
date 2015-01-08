@@ -8,12 +8,12 @@ class MyControlEngine:public ControlEngine {
 
 private:
 	Morpion *morpion_;
-	Player *player_;
-	IA *ia_;
+	std::vector<Player *> players_;
+	std::vector<IA *> ias_;
 public:
 
-	MyControlEngine(Morpion *morpion, Player *player, IA *ia) :
-	morpion_(morpion),player_(player),ia_(ia){}
+	MyControlEngine(Morpion *morpion, std::vector<Player *> players, std::vector<IA *> ias) :
+	morpion_(morpion),players_(players),ias_(ias){}
     
     virtual void MouseCallback(int button, int state, int x, int y) ;
 };

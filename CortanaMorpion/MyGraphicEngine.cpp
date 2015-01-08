@@ -4,21 +4,11 @@ void MyGraphicEngine::Draw()
 {
 	//CROIX GAGNE
 	if ((*morpion_).getCroixWin()){
-		//LE JOUEUR A LES CROIX
-		if ((*player_).getShape() == Constants::CROIX)
-			GraphicPrimitives::drawText2D("Le joueur gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
-		//L ORDI A LES CROIX
-		else
-			GraphicPrimitives::drawText2D("L'ordinateur gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
+		GraphicPrimitives::drawText2D("Le joueur 1 gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
 	}
 	//ROND GAGNE
 	else if ((*morpion_).getRondWin()){
-		//LE JOUEUR A LES RONDS
-		if ((*player_).getShape() == Constants::ROND)
-			GraphicPrimitives::drawText2D("Le joueur gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
-		//L ORDI A LES RONDS
-		else
-			GraphicPrimitives::drawText2D("L'ordinateur gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
+		GraphicPrimitives::drawText2D("Le joueur 2 gagne !", -0.175f, 0.9f, 1.0f, 1.0f, 1.0f);
 	}
 	// MATCH NUL
 	else if ((*morpion_).isFull()){

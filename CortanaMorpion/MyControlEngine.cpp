@@ -17,10 +17,10 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
 			if ((*morpion_).getCurrentPlayer() == Constants::PLAYER)
 			{
 				//CASE COCHEE ET CHANGEMENT DU JOUEUR COURANT
-				(*morpion_).getSquare(i, j)->setForme((*player_).getShape());
-				(*morpion_).getSquare(i, j)->incCptClick();
-				(*morpion_).incNbPions();
-				(*morpion_).changeCurrentPlayer();
+				(*morpion_).play(i, j, players_[0]->getShape());
+			}
+			else if ((*morpion_).getCurrentPlayer() == Constants::PLAYER_TWO){
+				(*morpion_).play(i, j, players_[1]->getShape());
 			}
 		}
 	}
