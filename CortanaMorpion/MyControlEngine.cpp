@@ -16,6 +16,7 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
 			//VERIFIE QUE C EST BIEN AU JOUEUR DE JOUER
 			if ((*morpion_).getCurrentPlayer() == Constants::PLAYER)
 			{
+				(*morpion_).endGame();
 				//CASE COCHEE ET CHANGEMENT DU JOUEUR COURANT
 				(*morpion_).play(i, j, players_[0]->getShape());
 			}

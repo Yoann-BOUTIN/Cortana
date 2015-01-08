@@ -8,16 +8,18 @@ const int MAXEVAL = 100000;
 class IAMinimax :
 	public IA
 {
+private:
+	int ordi_;
 public:
 	IAMinimax(const int shape, Morpion * morpion);
 	~IAMinimax();
 
-	void calculIA(Morpion * morpion, int prof);
-	int calcMin(Morpion *morpion, int prof);
-	int calcMax(Morpion *morpion, int prof);
-	int evalue(Morpion * morpion);
+	void calculIA();
+	int calcMin(int prof);
+	int calcMax(int prof);
+	int evalue();
 	int calcScore(int cntpion, int cntjoueur);
-	int comptePions(Morpion *morpion);
+	int comptePions();
 	int getOtherShape(){ return (shape_ == Constants::CROIX) ? Constants::CROIX : Constants::ROND; }
 };
 

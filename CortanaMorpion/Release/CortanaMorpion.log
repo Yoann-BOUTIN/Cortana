@@ -1,4 +1,4 @@
-﻿La génération a démarré 08/01/2015 20:04:18.
+﻿La génération a démarré 08/01/2015 22:27:00.
      1>Projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IAMinimax.cpp
@@ -15,7 +15,6 @@
          Release\Player.obj
          Release\Square.obj
          Génération de code en cours
-     1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\iaminimax.cpp(259): warning C4715: 'IAMinimax::calcScore' : les chemins de contrôle ne retournent pas tous une valeur
      1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(304): warning C4715: 'Morpion::verifDiagoDroite' : les chemins de contrôle ne retournent pas tous une valeur
      1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(239): warning C4715: 'Morpion::verifDiagoGauche' : les chemins de contrôle ne retournent pas tous une valeur
      1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(174): warning C4715: 'Morpion::verifColonne' : les chemins de contrôle ne retournent pas tous une valeur
@@ -31,4 +30,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:02.51
+Temps écoulé 00:00:02.31

@@ -17,7 +17,7 @@ IARandom::~IARandom()
 {
 }
 
-void IARandom::calculIA(Morpion *morpion, int prof)
+void IARandom::calculIA()
 {
 	int i = 0;
 	int j = 0;
