@@ -128,7 +128,7 @@ int IAMinimax::evalue()
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
 		//Si l'IA a gagné, on retourne 1000 - le nombre de pions
-		if ((*morpion_).getCroixWin())
+		if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
 			return 1000 - comptePions();
 		//Egalite -> on retourne 0	
 		else if ((*morpion_).isFull())

@@ -314,14 +314,12 @@ void Morpion::endGame(){
 				{
 				case Constants::CROIX:
 					if (verifColonne(i, j, Constants::CROIX) || verifDiagoDroite(i, j, Constants::CROIX) || verifDiagoGauche(i, j, Constants::CROIX) || verifLigne(i, j, Constants::CROIX)){
-						winner_ = Constants::PLAYER;
 						croixWin_ = true;
 						endGame_ = true;
 					}
 					break;
 				case Constants::ROND:
 					if (verifColonne(i, j, Constants::ROND) || verifDiagoDroite(i, j, Constants::ROND) || verifDiagoGauche(i, j, Constants::ROND) || verifLigne(i, j, Constants::ROND)){
-						winner_ = Constants::ORDI;
 						rondWin_ = true;
 						endGame_ = true;
 					}
