@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IA.cpp" />
+    <ClCompile Include="IAAlphaBeta.cpp" />
     <ClCompile Include="IAMinimax.cpp" />
     <ClCompile Include="IARandom.cpp" />
     <ClCompile Include="main.cpp" />
@@ -98,6 +99,7 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="IA.h" />
+    <ClInclude Include="IAAlphaBeta.h" />
     <ClInclude Include="IAMinimax.h" />
     <ClInclude Include="IARandom.h" />
     <ClInclude Include="Morpion.h" />

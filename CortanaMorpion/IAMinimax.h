@@ -1,9 +1,5 @@
 #pragma once
 #include "IA.h"
-#include <time.h>
-
-const int MINEVAL = -100000;
-const int MAXEVAL = 100000;
 
 class IAMinimax :
 	public IA

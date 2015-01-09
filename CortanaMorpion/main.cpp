@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "IARandom.h"
 #include "IAMinimax.h"
+#include "IAAlphaBeta.h"
 #include <time.h>
 
 int main(int argc, char * argv[])
@@ -78,7 +79,7 @@ int main(int argc, char * argv[])
 		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
 		break;
 	case 3:
-		ias_.push_back(new IARandom(Constants::CROIX, morpion_));
+		ias_.push_back(new IAAlphaBeta(Constants::CROIX, morpion_));
 		//INITIALISATION DU JOUEUR COURANT
 		(*morpion_).setCurrentPlayer(Constants::ORDI, Constants::CROIX);
 		break;
@@ -100,7 +101,7 @@ int main(int argc, char * argv[])
 		ias_.push_back(new IAMinimax(Constants::ROND, morpion_));
 		break;
 	default:
-		ias_.push_back(new IAMinimax(Constants::ROND, morpion_));
+		ias_.push_back(new IAAlphaBeta(Constants::ROND, morpion_));
 		break;
 	}
 

@@ -253,21 +253,6 @@ int IAMinimax::evalue()
 			score += calcScore(cntpion, cntjoueur);
 		}
 	}
-	/*int resj1;
-	int resj2;
-	resj1 = verifLigne(morpion_, Constants::CROIX, nbVerif, nbDecalage) + verifColonne(morpion_, Constants::CROIX, nbVerif, nbDecalage)
-		+ verifDiagD(morpion_, Constants::CROIX, nbVerif, nbDecalage) + verifDiagG(morpion_, Constants::CROIX, nbVerif, nbDecalage);
-
-	resj2 = verifLigne(morpion_, Constants::ROND, nbVerif, nbDecalage) + verifColonne(morpion_, Constants::ROND, nbVerif, nbDecalage)
-		+ verifDiagD(morpion_, Constants::ROND, nbVerif, nbDecalage) + verifDiagG(morpion_, Constants::ROND, nbVerif, nbDecalage);
-
-	if (shape_ == Constants::CROIX){
-		score += (resj1 - resj2);
-	}
-	else if (shape_ == Constants::ROND){
-		score += (resj2 - resj1);
-	}*/
-
 	return score;
 }
 
@@ -279,7 +264,7 @@ int IAMinimax::calcScore(int cntpion, int cntjoueur)
 	case 1:
 		return 10 * cntjoueur;
 	case 2:
-		return 30 * cntjoueur;
+		return 40 * cntjoueur;
 	case 3:
 		return 50 * cntjoueur;
 	case 4:
@@ -299,83 +284,4 @@ int IAMinimax::comptePions()
 			cnt++;
 	}
 	return cnt;
-}
-
-int IAMinimax::verifLigne(Morpion *morpion, int shape, int nbVerif, int nbDecallage){
-	int res = 0;
-	int compteur;
-	for (int i = 0; i < (*morpion).getSize(); i++){
-		for (int j = 0; j < nbDecallage; j++){
-			compteur = 0;
-			for (int k = j; k < nbVerif + k; j++){
-				if ((*morpion).getSquare(i, k)->getForme() == shape){
-					compteur++;
-				}
-				if (compteur == (nbVerif - 1)){
-					res++;
-				}
-			}
-		}
-	}
-	return res;
-}
-
-int IAMinimax::verifColonne(Morpion *morpion, int shape, int nbVerif, int nbDecallage){
-	int res = 0;
-	int compteur;
-	for (int i = 0; i < (*morpion).getSize(); i++){
-		for (int j = 0; j < nbDecallage; j++){
-			compteur = 0;
-			for (int k = j; k < nbVerif + j; k++){
-				if (!(*morpion).isSquareEmpty(k, i))
-				{
-					if ((*morpion).getSquare(k, i)->getForme() == shape){
-						compteur++;
-					}
-					if (compteur == (nbVerif - 1)){
-						res++;
-					}
-				}
-			}
-		}
-	}
-	return res;
-}
-
-int IAMinimax::verifDiagG(Morpion *morpion, int shape, int nbVerif, int nbDecallage){
-	int res = 0;
-	int compteur;
-	for (int i = 0; i < nbDecallage; i++){
-		for (int j = 0; j < nbDecallage; j++){
-			compteur = 0;
-			for (int k = 0; k < nbVerif; k++){
-				if ((*morpion).getSquare(i + k, ((*morpion).getSize() - 1) - (j + k))->getForme() == shape){
-					compteur++;
-				}
-				if (compteur == (nbVerif - 1)){
-					res++;
-				}
-			}
-		}
-	}
-	return res;
-}
-
-int IAMinimax::verifDiagD(Morpion *morpion, int shape, int nbVerif, int nbDecallage){
-	int res = 0;
-	int compteur;
-	for (int i = 0; i < nbDecallage; i++){
-		for (int j = 0; j < nbDecallage; j++){
-			compteur = 0;
-			for (int k = 0; k < nbVerif; k++){
-				if ((*morpion).getSquare(i + k, j + k)->getForme() == shape){
-					compteur++;
-				}
-				if (compteur == (nbVerif - 1)){
-					res++;
-				}
-			}
-		}
-	}
-	return res;
 }

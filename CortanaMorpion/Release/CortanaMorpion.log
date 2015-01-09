@@ -1,10 +1,11 @@
-﻿La génération a démarré 09/01/2015 20:56:03.
-     1>Projet "C:\Users\Yoann\Desktop\Morpion\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 09/01/2015 23:06:32.
+     1>Projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IAMinimax.cpp
-         IAMinimax.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IAAlphaBeta.cpp
+         IAAlphaBeta.cpp
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\uselibgraph\libWin engine.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.lib" /MACHINE:X86 /SAFESEH Release\IA.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\CortanaMorpion.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\uselibgraph\libWin engine.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\CortanaMorpion.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\CortanaMorpion.lib" /MACHINE:X86 /SAFESEH Release\IA.obj
+         Release\IAAlphaBeta.obj
          Release\IAMinimax.obj
          Release\IARandom.obj
          Release\main.obj
@@ -15,19 +16,19 @@
          Release\Player.obj
          Release\Square.obj
          Génération de code en cours
-     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\morpion.cpp(304): warning C4715: 'Morpion::verifDiagoDroite' : les chemins de contrôle ne retournent pas tous une valeur
-     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\morpion.cpp(239): warning C4715: 'Morpion::verifDiagoGauche' : les chemins de contrôle ne retournent pas tous une valeur
-     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\morpion.cpp(174): warning C4715: 'Morpion::verifColonne' : les chemins de contrôle ne retournent pas tous une valeur
-     1>c:\users\yoann\desktop\morpion\cortana\cortanamorpion\morpion.cpp(109): warning C4715: 'Morpion::verifLigne' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(239): warning C4715: 'Morpion::verifDiagoGauche' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(304): warning C4715: 'Morpion::verifDiagoDroite' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(174): warning C4715: 'Morpion::verifColonne' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\kevin\desktop\cours\master 1 info\c++\tpc++\cpp\cortana\cortanamorpion\morpion.cpp(109): warning C4715: 'Morpion::verifLigne' : les chemins de contrôle ne retournent pas tous une valeur
          Fin de la génération du code
-     1>engine.lib(Engine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(Engine.obj)' ou sur 'C:\Users\Yoann\Desktop\Morpion\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>engine.lib(GameEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GameEngine.obj)' ou sur 'C:\Users\Yoann\Desktop\Morpion\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>engine.lib(ControlEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(ControlEngine.obj)' ou sur 'C:\Users\Yoann\Desktop\Morpion\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>engine.lib(GraphicEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GraphicEngine.obj)' ou sur 'C:\Users\Yoann\Desktop\Morpion\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
-     1>engine.lib(GraphicPrimitives.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GraphicPrimitives.obj)' ou sur 'C:\Users\Yoann\Desktop\Morpion\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
-         CortanaMorpion.vcxproj -> C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.exe
-     1>Génération du projet "C:\Users\Yoann\Desktop\Morpion\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)).
+     1>engine.lib(Engine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(Engine.obj)' ou sur 'C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
+     1>engine.lib(GameEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GameEngine.obj)' ou sur 'C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
+     1>engine.lib(ControlEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(ControlEngine.obj)' ou sur 'C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
+     1>engine.lib(GraphicEngine.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GraphicEngine.obj)' ou sur 'C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
+     1>engine.lib(GraphicPrimitives.obj) : warning LNK4099: PDB 'vc120.pdb' n'a pu être trouvé avec 'engine.lib(GraphicPrimitives.obj)' ou sur 'C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\vc120.pdb' ; l'objet sera lié sans informations de débogage
+         CortanaMorpion.vcxproj -> C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\Release\CortanaMorpion.exe
+     1>Génération du projet "C:\Users\kevin\Desktop\Cours\MASTER 1 INFO\C++\TPC++\Cpp\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:02.04
+Temps écoulé 00:00:02.38
