@@ -6,7 +6,17 @@ IAMinimax::IAMinimax(const int shape, Morpion * morpion) : ordi_(Constants::EMPT
 	srand(time(NULL));
 	shape_ = shape;
 	morpion_ = morpion;
-	prof_ = 2;
+	switch ((*morpion).getSize()){
+	case 3:
+		prof_ = 9;
+		break;
+	case 5:
+		prof_ = 3;
+		break;
+	case 10:
+		prof_ = 2;
+		break;
+	}
 	cptEval_ = 0;
 }
 
