@@ -338,11 +338,18 @@ void Morpion::play(int i, int j, int shape)
 	getSquare(i, j)->incCptClick();
 	incNbPions();
 	changeCurrentPlayer();
-	//std::cout << "PLAY" << std::endl;
+	//std::cout << "PLAY" << std::endl;//VERIFIE S'IL Y A UN VAINQUEUR
+	endGame();
 }
 
 void Morpion::annuleCoup(int i, int j)
 {
+	if (croixWin_){
+		croixWin_ = false;
+	}
+	if (rondWin_){
+		rondWin_ = false;
+	}
 	getSquare(i, j)->restoreCptClick();
 	getSquare(i, j)->setForme(Constants::EMPTY);
 	decNbPions();
