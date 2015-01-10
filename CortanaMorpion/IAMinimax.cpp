@@ -264,7 +264,7 @@ int IAMinimax::calcScore(int cntpion, int cntjoueur)
 	case 1:
 		return 10 * cntjoueur;
 	case 2:
-		return 40 * cntjoueur;
+		return 30 * cntjoueur;
 	case 3:
 		return 50 * cntjoueur;
 	case 4:

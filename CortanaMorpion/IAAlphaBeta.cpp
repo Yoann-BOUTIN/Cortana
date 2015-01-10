@@ -11,7 +11,7 @@ IAAlphaBeta::IAAlphaBeta(const int shape, Morpion * morpion) : ordi_(Constants::
 		prof_ = 9;
 		break;
 	case 5:
-		prof_ = 5;
+		prof_ = 6;
 		break;
 	case 10:
 		prof_ = 3;
@@ -50,6 +50,7 @@ void IAAlphaBeta::calculIA()
 					if (alpha<tmp)
 					{
 						//On le choisit
+						//std::cout << tmp << std::endl;
 						alpha = tmp;
 						maxi = i;
 						maxj = j;
@@ -85,7 +86,7 @@ int IAAlphaBeta::calcMin(int prof, int alpha, int beta)
 				(*morpion_).annuleCoup(i, j);
 
 				//Mis a jour de beta
-				if (beta > tmp)
+				if (tmp < beta)
 				{
 					beta = tmp;
 				}
@@ -121,7 +122,7 @@ int IAAlphaBeta::calcMax(int prof, int alpha, int beta)
 					alpha = tmp;
 				}
 
-				if (beta <= alpha)
+				if (beta <= tmp)
 				{
 					return alpha;
 				}
@@ -278,7 +279,7 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 	case 1:
 		return 10 * cntjoueur;
 	case 2:
-		return 40 * cntjoueur;
+		return 30 * cntjoueur;
 	case 3:
 		return 50 * cntjoueur;
 	case 4:
