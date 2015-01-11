@@ -46,7 +46,7 @@ void IAMinimax::calculIA()
 					//On appelle la fonction calcMin pour lancer l'IA
 					int tmp = calcMin(prof_);
 					//Si ce score est plus grand
-					if (tmp > max || (tmp == max && rand() % 2 == 0))
+					if (tmp > max)
 					{
 						//On le choisit
 						max = tmp;
