@@ -11,10 +11,10 @@ IAAlphaBeta::IAAlphaBeta(const int shape, Morpion * morpion) : ordi_(Constants::
 		prof_ = 9;
 		break;
 	case 5:
-		prof_ = 6;
+		prof_ = 5;
 		break;
 	case 10:
-		prof_ = 3;
+		prof_ = 1;
 		break;
 	}
 	cptEval_ = 0;
@@ -34,6 +34,9 @@ void IAAlphaBeta::calculIA()
 	//Si la profondeur est nulle ou la partie est finie,
 	ordi_ = (*morpion_).getCurrentPlayer();
 	//on ne fait pas le calcul
+	if (comptePions() >= 35){
+		prof_ = 3;
+	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())
 	{
 		//On parcourt les cases du morpion
@@ -50,7 +53,6 @@ void IAAlphaBeta::calculIA()
 					if (alpha<tmp)
 					{
 						//On le choisit
-						//std::cout << tmp << std::endl;
 						alpha = tmp;
 						maxi = i;
 						maxj = j;
@@ -86,7 +88,7 @@ int IAAlphaBeta::calcMin(int prof, int alpha, int beta)
 				(*morpion_).annuleCoup(i, j);
 
 				//Mis a jour de beta
-				if (tmp < beta)
+				if (beta > tmp)
 				{
 					beta = tmp;
 				}
@@ -122,7 +124,7 @@ int IAAlphaBeta::calcMax(int prof, int alpha, int beta)
 					alpha = tmp;
 				}
 
-				if (beta <= tmp)
+				if (beta <= alpha)
 				{
 					return alpha;
 				}
@@ -283,6 +285,9 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 	case 3:
 		return 50 * cntjoueur;
 	case 4:
+		if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
+			return 500 * cntjoueur;
+		}
 		return 70 * cntjoueur;
 	default:
 		return 0;
