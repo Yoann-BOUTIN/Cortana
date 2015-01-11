@@ -30,7 +30,7 @@ void Morpion::init()
 		for (int colonne = 0; colonne < size_; colonne++)
 		{
 			squares_[ligne].emplace_back(new Square(
-				-1 + (colonne* squareSize_),
+				- 1 + (colonne* squareSize_),
 				-1 + (ligne * squareSize_),
 				squareSize_,
 				0.0f,
