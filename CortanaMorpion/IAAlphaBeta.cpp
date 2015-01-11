@@ -34,7 +34,7 @@ void IAAlphaBeta::calculIA()
 	//Si la profondeur est nulle ou la partie est finie,
 	ordi_ = (*morpion_).getCurrentPlayer();
 	//on ne fait pas le calcul
-	if (comptePions() >= 35 && (*morpion_).getSize() == 10){
+	if (comptePions() >= 45 && (*morpion_).getSize() == 10){
 		prof_ = 3;
 	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())
@@ -286,7 +286,7 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 		return 50 * cntjoueur;
 	case 4:
 		if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
-			return 500 * cntjoueur;
+			return 200 * cntjoueur;
 		}
 		return 70 * cntjoueur;
 	default:
