@@ -34,7 +34,7 @@ void IAAlphaBeta::calculIA()
 	//Si la profondeur est nulle ou la partie est finie,
 	ordi_ = (*morpion_).getCurrentPlayer();
 	//on ne fait pas le calcul
-	if (comptePions() >= 35){
+	if (comptePions() >= 35 && (*morpion_).getSize() == 10){
 		prof_ = 3;
 	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())

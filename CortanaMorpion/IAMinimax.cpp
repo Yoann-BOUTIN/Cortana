@@ -14,7 +14,7 @@ IAMinimax::IAMinimax(const int shape, Morpion * morpion) : ordi_(Constants::EMPT
 		prof_ = 3;
 		break;
 	case 10:
-		prof_ = 2;
+		prof_ = 1;
 		break;
 	}
 	cptEval_ = 0;
@@ -268,6 +268,9 @@ int IAMinimax::calcScore(int cntpion, int cntjoueur)
 	case 3:
 		return 50 * cntjoueur;
 	case 4:
+		if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
+			return 500 * cntjoueur;
+		}
 		return 70 * cntjoueur;
 	default:
 		return 0;
