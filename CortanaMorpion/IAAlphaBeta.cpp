@@ -34,7 +34,7 @@ void IAAlphaBeta::calculIA()
 	//Si la profondeur est nulle ou la partie est finie,
 	ordi_ = (*morpion_).getCurrentPlayer();
 	//on ne fait pas le calcul
-	if (comptePions() >= 45 && (*morpion_).getSize() == 10){
+	if (comptePions() >= 55 && (*morpion_).getSize() == 10){
 		prof_ = 3;
 	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())
@@ -144,15 +144,27 @@ int IAAlphaBeta::evalue()
 	int score = 0;
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
-		//Si l'IA a gagné, on retourne 1000 - le nombre de pions
-		if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
-			return 1000 - comptePions();
-		//Egalite -> on retourne 0	
-		else if ((*morpion_).isFull())
-			return 0;
-		//Si l'IA a perdu, on retourne -1000 + le nombre de pions
-		else
-			return -1000 + comptePions();
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ == 1){
+			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
+				return 10000 - comptePions();
+			//Egalite -> on retourne 0	
+			else if ((*morpion_).isFull())
+				return 0;
+			//Si l'IA a perdu, on retourne -1000 + le nombre de pions
+			else
+				return -10000 + comptePions();
+		}
+		else{
+			//Si l'IA a gagné, on retourne 1000 - le nombre de pions
+			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
+				return 1000 - comptePions();
+			//Egalite -> on retourne 0	
+			else if ((*morpion_).isFull())
+				return 0;
+			//Si l'IA a perdu, on retourne -1000 + le nombre de pions
+			else
+				return -1000 + comptePions();
+		}
 	}
 
 	switch ((*morpion_).getSize())
@@ -285,7 +297,7 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 	case 3:
 		return 50 * cntjoueur;
 	case 4:
-		if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
+		if ((cntpion == cntjoueur || cntpion == -(cntjoueur)) && ((*morpion_).getSize() == Constants::TAILLE_MORPION_10) && (prof_ != 3)){
 			return 200 * cntjoueur;
 		}
 		return 70 * cntjoueur;
