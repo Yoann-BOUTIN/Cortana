@@ -14,7 +14,7 @@ IAAlphaBeta::IAAlphaBeta(const int shape, Morpion * morpion) : ordi_(Constants::
 		prof_ = 5;
 		break;
 	case 10:
-		prof_ = 1;
+		prof_ = 2;
 		break;
 	}
 	cptEval_ = 0;
@@ -32,7 +32,8 @@ void IAAlphaBeta::calculIA()
 	int alpha = MINEVAL;
 	int beta = MAXEVAL;
 	//Si la profondeur est nulle ou la partie est finie,
-	ordi_ = (*morpion_).getCurrentPlayer();
+	ordi_ = (*morpion_).getCurrentShape();
+
 	//on ne fait pas le calcul
 	if (comptePions() >= 55 && (*morpion_).getSize() == 10){
 		prof_ = 3;
@@ -144,7 +145,7 @@ int IAAlphaBeta::evalue()
 	int score = 0;
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ == 1){
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
 			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
 				return 10000 - comptePions();
 			//Egalite -> on retourne 0	
@@ -198,7 +199,7 @@ int IAAlphaBeta::evalue()
 					//On incrémente d'un pion
 					cntpion++;
 					//Si c'est le même type du joueur courant
-					if ((*morpion_).getSquare(i + k, i + j)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i + k, i + j)->getForme() == shape_){
 						//On incrémente le compteur
 						cntjoueur++;
 					}
@@ -224,7 +225,7 @@ int IAAlphaBeta::evalue()
 				if (!(*morpion_).isSquareEmpty(i + k, ((*morpion_).getSize() - 1) - (i + j)))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(i + k, ((*morpion_).getSize() - 1) - (i + j))->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i + k, ((*morpion_).getSize() - 1) - (i + j))->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -248,7 +249,7 @@ int IAAlphaBeta::evalue()
 				if (!(*morpion_).isSquareEmpty(i, j))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(i, j)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i, j)->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -271,7 +272,7 @@ int IAAlphaBeta::evalue()
 				if (!(*morpion_).isSquareEmpty(j, i))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(j, i)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(j, i)->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -298,7 +299,7 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 		return 50 * cntjoueur;
 	case 4:
 		if ((cntpion == cntjoueur || cntpion == -(cntjoueur)) && ((*morpion_).getSize() == Constants::TAILLE_MORPION_10) && (prof_ != 3)){
-			return 200 * cntjoueur;
+			return 1000 * cntjoueur;
 		}
 		return 70 * cntjoueur;
 	default:
