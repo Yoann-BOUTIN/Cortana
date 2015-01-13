@@ -14,7 +14,7 @@ IAMinimax::IAMinimax(const int shape, Morpion * morpion) : ordi_(Constants::EMPT
 		prof_ = 3;
 		break;
 	case 10:
-		prof_ = 1;
+		prof_ = 2;
 		break;
 	}
 	cptEval_ = 0;
@@ -127,15 +127,27 @@ int IAMinimax::evalue()
 	int score = 0;
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
-		//Si l'IA a gagné, on retourne 1000 - le nombre de pions
-		if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
-			return 1000 - comptePions();
-		//Egalite -> on retourne 0	
-		else if ((*morpion_).isFull())
-			return 0;
-		//Si l'IA a perdu, on retourne -1000 + le nombre de pions
-		else
-			return -1000 + comptePions();
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
+			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
+				return 30000 - comptePions();
+			//Egalite -> on retourne 0	
+			else if ((*morpion_).isFull())
+				return 0;
+			//Si l'IA a perdu, on retourne -1000 + le nombre de pions
+			else
+				return -30000 + comptePions();
+		}
+		else{
+			//Si l'IA a gagné, on retourne 1000 - le nombre de pions
+			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
+				return 1000 - comptePions();
+			//Egalite -> on retourne 0	
+			else if ((*morpion_).isFull())
+				return 0;
+			//Si l'IA a perdu, on retourne -1000 + le nombre de pions
+			else
+				return -1000 + comptePions();
+		}
 	}
 
 	switch ((*morpion_).getSize())
@@ -169,7 +181,7 @@ int IAMinimax::evalue()
 					//On incrémente d'un pion
 					cntpion++;
 					//Si c'est le même type du joueur courant
-					if ((*morpion_).getSquare(i + k, i + j)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i + k, i + j)->getForme() == shape_){
 						//On incrémente le compteur
 						cntjoueur++;
 					}
@@ -195,7 +207,7 @@ int IAMinimax::evalue()
 				if (!(*morpion_).isSquareEmpty(i + k, ((*morpion_).getSize() - 1) - (i + j)))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(i + k, ((*morpion_).getSize() - 1) - (i + j))->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i + k, ((*morpion_).getSize() - 1) - (i + j))->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -219,7 +231,7 @@ int IAMinimax::evalue()
 				if (!(*morpion_).isSquareEmpty(i, j))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(i, j)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(i, j)->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -242,7 +254,7 @@ int IAMinimax::evalue()
 				if (!(*morpion_).isSquareEmpty(j, i))
 				{
 					cntpion++;
-					if ((*morpion_).getSquare(j, i)->getForme() == (*morpion_).getCurrentShape()){
+					if ((*morpion_).getSquare(j, i)->getForme() == shape_){
 						cntjoueur++;
 					}
 					else{
@@ -266,12 +278,37 @@ int IAMinimax::calcScore(int cntpion, int cntjoueur)
 	case 2:
 		return 30 * cntjoueur;
 	case 3:
+		if (cntpion == -(cntjoueur) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
+			return 1000 * cntjoueur;
+		}
 		return 50 * cntjoueur;
 	case 4:
-		if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
-			return 500 * cntjoueur;
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
+			if (cntpion == cntjoueur){
+				return 500 * cntjoueur;
+			}
+			else if (cntpion == -(cntjoueur))
+			{
+				return 1000 * cntjoueur;
+			}
+			else if (cntpion - 2 == -(cntjoueur)){
+				return 500 * cntjoueur;
+			}
 		}
+		/*if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
+		return 1000 * cntjoueur;
+		}*/
 		return 70 * cntjoueur;
+	case 5:
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
+			if ((cntpion - 4) == -(cntjoueur)){
+				return 500 * cntjoueur;
+			}
+			else if ((cntpion - 2) == cntjoueur){
+				return 500 * cntjoueur;
+			}
+		}
+		return 0;
 	default:
 		return 0;
 	}
