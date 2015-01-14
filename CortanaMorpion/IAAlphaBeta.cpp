@@ -35,7 +35,7 @@ void IAAlphaBeta::calculIA()
 	ordi_ = (*morpion_).getCurrentShape();
 
 	//on ne fait pas le calcul
-	if (comptePions() >= 55 && (*morpion_).getSize() == 10){
+	if (comptePions() >= 70 && (*morpion_).getSize() == 10){
 		prof_ = 3;
 	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())
@@ -145,7 +145,7 @@ int IAAlphaBeta::evalue()
 	int score = 0;
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& (prof_ != 4)*/){
 			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
 				return 30000 - comptePions();
 			//Egalite -> on retourne 0	
@@ -296,37 +296,37 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 	case 2:
 		return 30 * cntjoueur;
 	case 3:
-		if (cntpion == -(cntjoueur) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
-			return 1000 * cntjoueur;
+		if (cntpion == -(cntjoueur) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& prof_ != 4*/){
+			return 400 * cntjoueur;
 		}
 		return 50 * cntjoueur;
 	case 4:
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
-			if (cntpion == cntjoueur){
-				return 500 * cntjoueur;
-			}
-			else if (cntpion == -(cntjoueur))
-			{
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& prof_ != 4*/){
+			if (cntpion == -(cntjoueur)){
 				return 1000 * cntjoueur;
 			}
-			else if (cntpion - 2 == -(cntjoueur)){
-				return 500 * cntjoueur;
+			else if (cntpion == cntjoueur)
+			{
+				return 300 * cntjoueur;
+			}
+			else if (cntpion - 2 == cntjoueur){
+				return 200 * cntjoueur;
 			}
 		}
-		/*if (cntpion == cntjoueur || cntpion == -(cntjoueur)){
+		/*if ((cntpion == cntjoueur || cntpion == -(cntjoueur)) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
 			return 1000 * cntjoueur;
 			}*/
 		return 70 * cntjoueur;
 	case 5:
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
-			if ((cntpion - 4) == -(cntjoueur)){
+		/*if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 4){
+			if ((cntpion - 4) == cntjoueur){
 				return 500 * cntjoueur;
 			}
 			else if ((cntpion - 2) == cntjoueur){
 				return 500 * cntjoueur;
 			}
-		}
-		return 0;
+		}*/
+		return 90 * cntjoueur;
 	default:
 		return 0;
 	}

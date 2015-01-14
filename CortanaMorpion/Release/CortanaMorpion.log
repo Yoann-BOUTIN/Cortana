@@ -1,8 +1,8 @@
-﻿La génération a démarré 13/01/2015 20:03:44.
+﻿La génération a démarré 14/01/2015 01:57:50.
      1>Projet "C:\Users\Yoann\Desktop\Morpion\Cortana\CortanaMorpion\CortanaMorpion.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /Ox /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IAMinimax.cpp
-         IAMinimax.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\uselibgraph\include /Zi /nologo /W3 /WX- /sdl /Ox /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt IAAlphaBeta.cpp
+         IAAlphaBeta.cpp
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\uselibgraph\libWin engine.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Yoann\Desktop\Morpion\Cortana\Release\CortanaMorpion.lib" /MACHINE:X86 /SAFESEH Release\IA.obj
          Release\IAAlphaBeta.obj
@@ -31,4 +31,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:05.15
+Temps écoulé 00:00:02.29
