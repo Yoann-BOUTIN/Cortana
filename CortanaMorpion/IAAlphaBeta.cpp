@@ -11,10 +11,10 @@ IAAlphaBeta::IAAlphaBeta(const int shape, Morpion * morpion) : ordi_(Constants::
 		prof_ = 9;
 		break;
 	case 5:
-		prof_ = 5;
+		prof_ = 6;
 		break;
 	case 10:
-		prof_ = 2;
+		prof_ = 3;
 		break;
 	}
 	cptEval_ = 0;
@@ -36,7 +36,7 @@ void IAAlphaBeta::calculIA()
 
 	//on ne fait pas le calcul
 	if (comptePions() >= 70 && (*morpion_).getSize() == 10){
-		prof_ = 3;
+		prof_ = 4;
 	}
 	if (prof_ != 0 || !(*morpion_).getEndGame())
 	{
@@ -49,7 +49,7 @@ void IAAlphaBeta::calculIA()
 					//On simule qu'on joue cette case
 					(*morpion_).play(i, j, (*morpion_).getCurrentShape());
 					//On appelle la fonction calcMin pour lancer l'IA
-					int tmp = calcMin(prof_, alpha, beta);
+					int tmp = calcMin(prof_ - 1, alpha, beta);
 					//Si ce score est plus grand
 					if (alpha < tmp)
 					{
@@ -145,7 +145,7 @@ int IAAlphaBeta::evalue()
 	int score = 0;
 	//Si le jeu est fini
 	if ((*morpion_).getEndGame()){
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& (prof_ != 4)*/){
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10){
 			if (((shape_ == Constants::CROIX) && ((*morpion_).getCroixWin())) || ((shape_ == Constants::ROND) && ((*morpion_).getRondWin())))
 				return 30000 - comptePions();
 			//Egalite -> on retourne 0	
@@ -213,7 +213,6 @@ int IAAlphaBeta::evalue()
 		}
 	}
 
-	//std::cout << "score " << score << std::endl;
 	//Diagonale 2
 
 	for (k = 0; k < nbDecalage; k++){
@@ -296,12 +295,12 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 	case 2:
 		return 30 * cntjoueur;
 	case 3:
-		if (cntpion == -(cntjoueur) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& prof_ != 4*/){
+		if (cntpion == -(cntjoueur) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10){
 			return 400 * cntjoueur;
 		}
 		return 50 * cntjoueur;
 	case 4:
-		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 /*&& prof_ != 4*/){
+		if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10){
 			if (cntpion == -(cntjoueur)){
 				return 1000 * cntjoueur;
 			}
@@ -313,19 +312,8 @@ int IAAlphaBeta::calcScore(int cntpion, int cntjoueur)
 				return 200 * cntjoueur;
 			}
 		}
-		/*if ((cntpion == cntjoueur || cntpion == -(cntjoueur)) && (*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 3){
-			return 1000 * cntjoueur;
-			}*/
 		return 70 * cntjoueur;
 	case 5:
-		/*if ((*morpion_).getSize() == Constants::TAILLE_MORPION_10 && prof_ != 4){
-			if ((cntpion - 4) == cntjoueur){
-				return 500 * cntjoueur;
-			}
-			else if ((cntpion - 2) == cntjoueur){
-				return 500 * cntjoueur;
-			}
-		}*/
 		return 90 * cntjoueur;
 	default:
 		return 0;
