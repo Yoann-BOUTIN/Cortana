@@ -6,7 +6,7 @@
 #include "IA.h"
 
 class MyGraphicEngine:public GraphicEngine {
-   
+   // Classe qui gère la partie graphique
 private:
 	Morpion *morpion_;
 	std::vector<Player *> players_;

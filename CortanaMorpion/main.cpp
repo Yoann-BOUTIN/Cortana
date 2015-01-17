@@ -16,16 +16,17 @@
 int main(int argc, char * argv[])
 {
 	Engine e(argc, argv, Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT, "Cortana");
-	bool notReady = true;
-	int taille;
-	int player1, player2;
-	std::vector<Player *> players_;
-	std::vector<IA *> ias_;
+	bool notReady = true; // booleen a true de base, et sera mis a false lorsque la configuration de la partie aura ete realisee
+	int taille; // taille de la grille du morpion
+	int player1, player2; //identificateur des deux joueurs
+	std::vector<Player *> players_; // vecteur de joueurs
+	std::vector<IA *> ias_; // vecteur d'ordinateurs
 
 	GraphicEngine * ge;
 	GameEngine * gme;
 	ControlEngine * ce;
 
+	// tant que la configuration n'est pas terminee le jeu ne se lance pas
 	while (notReady)
 	{
 		std::cout << "#################################" << std::endl;
@@ -42,6 +43,7 @@ int main(int argc, char * argv[])
 		std::cin >> player2;
 		notReady = false;
 	}
+	// creation d'un morpion selon la taille choisi par l'utilisateur
 	Morpion * morpion_;
 	switch (taille)
 	{

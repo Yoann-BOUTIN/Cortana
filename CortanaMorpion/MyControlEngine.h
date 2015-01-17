@@ -5,7 +5,7 @@
 #include "IA.h"
 
 class MyControlEngine:public ControlEngine {
-
+	// Classe qui va gerer les cliques.
 private:
 	Morpion *morpion_;
 	std::vector<Player *> players_;

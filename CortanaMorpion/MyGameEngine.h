@@ -5,7 +5,7 @@
 #include "IA.h"
 
 class MyGameEngine:public GameEngine {
-
+	// Classe qui gère les evenement continues
 private:
 	Morpion *morpion_;
 	std::vector<Player *> players_;

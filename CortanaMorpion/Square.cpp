@@ -26,10 +26,3 @@ void Square::draw()
 		GraphicPrimitives::drawLine2D(posX_ + (0.9*side_), posY_ + (0.1*side_), posX_ + (0.9*side_), posY_ + (0.9*side_), 0.0, 1.0, 0.0);
 	}
 }
-
-void Square::setColor(float r, float g, float b)
-{
-	red_ = r;
-	green_ = g;
-	blue_ = b;
-}
